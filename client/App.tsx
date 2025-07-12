@@ -1,30 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Splash } from "./pages/Splash";
+import { Home } from "./pages/Home";
+import { Learn } from "./pages/Learn";
+import { Review } from "./pages/Review";
+import { Progress } from "./pages/Progress";
+import { NotFound } from "./pages/NotFound";
 import "./global.css";
 
-import { Toaster } from "@/components/ui/toaster";
-import { createRoot } from "react-dom/client";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-background text-foreground">
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Splash />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/progress" element={<Progress />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+      </div>
+    </BrowserRouter>
+  );
+}
 
-createRoot(document.getElementById("root")!).render(<App />);
+export default App;
