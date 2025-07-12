@@ -57,7 +57,7 @@ export function Learn() {
             className="flex items-center gap-2 text-foreground hover:text-gray-600 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-base">返回</span>
+            <span className="text-base">Back</span>
           </button>
           <span className="text-base text-foreground">
             {currentIndex + 1} / {vocabularyWords.length}
@@ -89,7 +89,7 @@ export function Learn() {
               className="flex-1 bg-app-lightgreen hover:bg-green-300 transition-colors py-3 px-6 rounded-lg"
             >
               <span className="text-sm font-medium text-foreground">
-                ✅ 我认识
+                ✅ I Know
               </span>
             </button>
             <button
@@ -97,14 +97,14 @@ export function Learn() {
               className="flex-1 bg-app-lightred hover:bg-red-300 transition-colors py-3 px-6 rounded-lg"
             >
               <span className="text-sm font-medium text-foreground">
-                ❌ 不认识
+                ❌ Don't Know
               </span>
             </button>
           </div>
 
           {/* Swipe Instruction */}
           <div className="text-center mt-8">
-            <p className="text-xs text-gray-400">← 滑动切换卡片 →</p>
+            <p className="text-xs text-gray-400">← Swipe to switch cards →</p>
           </div>
         </div>
       </div>
