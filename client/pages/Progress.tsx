@@ -24,19 +24,21 @@ export function Progress() {
             className="flex items-center gap-2 text-foreground hover:text-gray-600 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-base">返回</span>
+            <span className="text-base">Back</span>
           </button>
         </div>
 
         {/* Time Filter */}
         <div className="px-5 mt-8">
           <div className="bg-app-lightgray rounded-md p-3 mb-6 w-fit">
-            <span className="text-sm text-foreground">本周 📅</span>
+            <span className="text-sm text-foreground">This Week 📅</span>
           </div>
 
           {/* Chart Placeholder */}
           <div className="bg-app-gray rounded-lg p-8 mb-8 min-h-[150px] flex items-center justify-center">
-            <span className="text-sm text-foreground">📈 折线图占位</span>
+            <span className="text-sm text-foreground">
+              📈 Chart Placeholder
+            </span>
           </div>
 
           {/* Achievement Badge */}
@@ -44,7 +46,7 @@ export function Progress() {
             <div className="bg-app-yellow rounded-lg w-15 h-15 flex items-center justify-center mb-2">
               <span className="text-2xl">🏆</span>
             </div>
-            <p className="text-xs text-foreground">连续3天</p>
+            <p className="text-xs text-foreground">3 Days Streak</p>
           </div>
 
           {/* Settings Goal Button */}
