@@ -13,7 +13,7 @@ export function Splash() {
         {/* Logo */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-black text-center">
-            学习助手
+            Learning Assistant
           </h1>
         </div>
 
@@ -23,7 +23,7 @@ export function Splash() {
           className="w-full max-w-[200px] h-12 bg-blue-600 rounded-lg flex items-center justify-center transition-all hover:bg-blue-700 active:scale-95"
         >
           <span className="text-white font-medium text-base">
-            开始离线学习 📱
+            Start Learning 📱
           </span>
         </button>
 

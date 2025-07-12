@@ -36,7 +36,7 @@ export function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="text-lg font-medium text-foreground">
-                📚 今日词汇
+                📚 Daily Vocabulary
               </span>
             </div>
             <button
@@ -44,7 +44,7 @@ export function Home() {
               className="bg-app-lightgray hover:bg-gray-300 transition-colors px-4 py-2 rounded-md"
             >
               <span className="text-sm font-medium text-foreground">
-                学习 →
+                Learn →
               </span>
             </button>
           </div>
@@ -53,7 +53,7 @@ export function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="text-lg font-medium text-foreground">
-                🔄 复习提醒
+                🔄 Review Reminder
               </span>
             </div>
             <button
@@ -61,7 +61,7 @@ export function Home() {
               className="bg-app-lightgray hover:bg-gray-300 transition-colors px-4 py-2 rounded-md"
             >
               <span className="text-sm font-medium text-foreground">
-                复习 →
+                Review →
               </span>
             </button>
           </div>
@@ -74,19 +74,19 @@ export function Home() {
               onClick={handleLearnClick}
               className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
             >
-              <span className="text-sm text-foreground">📖 学习</span>
+              <span className="text-sm text-foreground">📖 Learn</span>
             </button>
             <button
               onClick={handleReviewClick}
               className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
             >
-              <span className="text-sm text-foreground">🔄 复习</span>
+              <span className="text-sm text-foreground">🔄 Review</span>
             </button>
             <button
               onClick={handleProgressClick}
               className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
             >
-              <span className="text-sm text-foreground">📊 进度</span>
+              <span className="text-sm text-foreground">📊 Progress</span>
             </button>
           </div>
         </div>

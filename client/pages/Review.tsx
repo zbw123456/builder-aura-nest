@@ -39,7 +39,7 @@ export function Review() {
         {/* Filter Section */}
         <div className="px-5 mt-8">
           <div className="bg-app-lightgray rounded-md p-3 mb-6 w-fit">
-            <span className="text-sm text-foreground">错误词汇 🔽</span>
+            <span className="text-sm text-foreground">Error Vocabulary 🔽</span>
           </div>
 
           {/* Word List */}

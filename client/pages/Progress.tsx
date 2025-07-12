@@ -53,7 +53,7 @@ export function Progress() {
             className="bg-app-darkgray hover:bg-gray-300 transition-colors rounded-lg px-6 py-3 flex items-center gap-2"
           >
             <Settings className="w-4 h-4 text-foreground" />
-            <span className="text-sm text-foreground">设置目标</span>
+            <span className="text-sm text-foreground">Set Goals</span>
           </button>
         </div>
       </div>
