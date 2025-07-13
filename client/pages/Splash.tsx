@@ -8,8 +8,8 @@ export function Splash() {
   };
 
   return (
-    <div className="splash-bg flex flex-col items-center justify-center px-4">
-      <div className="w-full max-w-sm mx-auto flex flex-col items-center">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+      <div className="w-full max-w-sm mx-auto bg-blue-500 rounded-lg p-8 flex flex-col items-center min-h-[600px] justify-center">
         {/* Logo */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white text-center">
