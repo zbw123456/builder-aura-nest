@@ -8,11 +8,11 @@ export function Splash() {
   };
 
   return (
-    <div className="learning-bg flex flex-col items-center justify-center px-4">
+    <div className="splash-bg flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm mx-auto flex flex-col items-center">
         {/* Logo */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white text-center drop-shadow-lg">
+          <h1 className="text-4xl font-bold text-white text-center">
             Learning Assistant
           </h1>
           <p className="text-white/80 text-center mt-2 text-sm">
@@ -23,9 +23,9 @@ export function Splash() {
         {/* Start Button */}
         <button
           onClick={handleStartLearning}
-          className="w-full max-w-[200px] h-12 glass-button rounded-lg flex items-center justify-center transition-all active:scale-95"
+          className="w-full max-w-[200px] h-12 simple-button rounded-lg flex items-center justify-center transition-all active:scale-95"
         >
-          <span className="text-white font-medium text-base drop-shadow-sm">
+          <span className="text-white font-medium text-base">
             Start Learning 📱
           </span>
         </button>
