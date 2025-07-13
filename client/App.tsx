@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { Learn } from "./pages/Learn";
 import { Review } from "./pages/Review";
 import { Progress } from "./pages/Progress";
+import { Settings } from "./pages/Settings";
 import { NotFound } from "./pages/NotFound";
 import "./global.css";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/learn" element={<Learn />} />
           <Route path="/review" element={<Review />} />
           <Route path="/progress" element={<Progress />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
