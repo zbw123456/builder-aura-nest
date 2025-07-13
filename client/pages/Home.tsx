@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, User, ChevronDown } from "lucide-react";
+import { Settings, User, ChevronDown } from "lucide-react";
 
 const categories = [
   { id: "daily", name: "Daily Life", icon: "🏠" },
@@ -27,8 +27,8 @@ export function Home() {
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
   const [showLevelDropdown, setShowLevelDropdown] = useState(false);
 
-  const handleMenuClick = () => {
-    console.log("Menu clicked");
+  const handleSettingsClick = () => {
+    navigate("/settings");
   };
 
   const handleProfileClick = () => {
@@ -52,10 +52,10 @@ export function Home() {
         {/* Header - Fixed */}
         <div className="flex items-center justify-between p-5 pt-8 flex-shrink-0">
           <button
-            onClick={handleMenuClick}
+            onClick={handleSettingsClick}
             className="simple-button rounded-lg p-2"
           >
-            <Menu className="w-5 h-5 text-white" />
+            <Settings className="w-5 h-5 text-white" />
           </button>
           <h2 className="text-white font-medium">Home</h2>
           <button
