@@ -5,31 +5,29 @@ export function Home() {
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
-    // Placeholder for menu functionality
     console.log("Menu clicked");
   };
 
   const handleProfileClick = () => {
-    // Placeholder for profile functionality
     console.log("Profile clicked");
   };
 
   return (
     <div className="home-bg">
       {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto relative z-10">
+      <div className="w-full max-w-sm mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
             onClick={handleMenuClick}
-            className="glass-button rounded-lg p-2 transition-all hover:scale-105"
+            className="simple-button rounded-lg p-2"
           >
             <Menu className="w-5 h-5 text-white" />
           </button>
-          <h2 className="text-white font-medium drop-shadow-sm">Home</h2>
+          <h2 className="text-white font-medium">Home</h2>
           <button
             onClick={handleProfileClick}
-            className="glass-button rounded-full p-2 transition-all hover:scale-105"
+            className="simple-button rounded-full p-2"
           >
             <User className="w-5 h-5 text-white" />
           </button>
@@ -38,82 +36,78 @@ export function Home() {
         {/* Main Content */}
         <div className="px-5 space-y-6">
           {/* Daily Vocabulary Section */}
-          <div className="glass-card rounded-lg p-6">
+          <div className="simple-card rounded-lg p-6">
             <div className="flex items-center justify-between">
-              <span className="text-lg font-medium text-white drop-shadow-sm">
+              <span className="text-lg font-medium text-gray-800">
                 📚 Daily Vocabulary
               </span>
               <button
                 onClick={() => navigate("/learn")}
-                className="glass-button rounded-md px-3 py-1 transition-all hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-3 py-1 text-sm transition-colors"
               >
-                <span className="text-sm font-medium text-white drop-shadow-sm">
-                  Learn →
-                </span>
+                Learn →
               </button>
             </div>
-            <p className="text-white/80 text-sm mt-2">
+            <p className="text-gray-600 text-sm mt-2">
               Master 10 new words today
             </p>
           </div>
 
           {/* Review Reminder Section */}
-          <div className="glass-card rounded-lg p-6">
+          <div className="simple-card rounded-lg p-6">
             <div className="flex items-center justify-between">
-              <span className="text-lg font-medium text-white drop-shadow-sm">
+              <span className="text-lg font-medium text-gray-800">
                 🔄 Review Reminder
               </span>
               <button
                 onClick={() => navigate("/review")}
-                className="glass-button rounded-md px-3 py-1 transition-all hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-3 py-1 text-sm transition-colors"
               >
-                <span className="text-sm font-medium text-white drop-shadow-sm">
-                  Review →
-                </span>
+                Review →
               </button>
             </div>
-            <p className="text-white/80 text-sm mt-2">5 words need review</p>
+            <p className="text-gray-600 text-sm mt-2">5 words need review</p>
           </div>
 
           {/* Quick Stats */}
-          <div className="glass-card rounded-lg p-4">
+          <div className="simple-card rounded-lg p-4">
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-white text-xl font-bold">25</div>
-                <div className="text-white/70 text-xs">Words Learned</div>
+                <div className="text-gray-800 text-xl font-bold">25</div>
+                <div className="text-gray-600 text-xs">Words Learned</div>
               </div>
               <div>
-                <div className="text-white text-xl font-bold">7</div>
-                <div className="text-white/70 text-xs">Day Streak</div>
+                <div className="text-gray-800 text-xl font-bold">7</div>
+                <div className="text-gray-600 text-xs">Day Streak</div>
               </div>
               <div>
-                <div className="text-white text-xl font-bold">85%</div>
-                <div className="text-white/70 text-xs">Accuracy</div>
+                <div className="text-gray-800 text-xl font-bold">85%</div>
+                <div className="text-gray-600 text-xs">Accuracy</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Navigation */}
-        <div className="fixed bottom-0 left-0 right-0 glass-card border-t backdrop-blur-lg">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t">
           <div className="w-full max-w-sm mx-auto flex justify-around py-3">
             <button
               onClick={() => navigate("/learn")}
-              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
+              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
             >
-              <span className="text-sm text-white">📖 Learn</span>
+              📖 Learn
             </button>
             <button
               onClick={() => navigate("/review")}
-              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
+              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
             >
-              <span className="text-sm text-white">🔄 Review</span>
+              🔄 Review
             </button>
             <button
               onClick={() => navigate("/progress")}
-              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
+              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
             >
-              <span className="text-sm text-white">📊 Progress</span>
+              📊 Progress
             </button>
           </div>
         </div>
