@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./pages/Login";
 import { Splash } from "./pages/Splash";
 import { Home } from "./pages/Home";
 import { Learn } from "./pages/Learn";
@@ -12,7 +13,8 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-background text-foreground">
         <Routes>
-          <Route path="/" element={<Splash />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/splash" element={<Splash />} />
           <Route path="/home" element={<Home />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/review" element={<Review />} />
