@@ -218,21 +218,27 @@ export function Home() {
           <div className="flex justify-around py-3">
             <button
               onClick={() => navigate("/learn")}
-              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
+              className="px-3 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               📖 Learn
             </button>
             <button
               onClick={() => navigate("/review")}
-              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
+              className="px-3 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               🔄 Review
             </button>
             <button
               onClick={() => navigate("/progress")}
-              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
+              className="px-3 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               📊 Progress
+            </button>
+            <button
+              onClick={() => navigate("/settings")}
+              className="px-3 py-2 text-sm text-white hover:text-white/80 transition-colors"
+            >
+              ⚙️ Settings
             </button>
           </div>
         </div>
