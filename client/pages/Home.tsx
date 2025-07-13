@@ -13,9 +13,9 @@ export function Home() {
   };
 
   return (
-    <div className="home-bg">
-      {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
+    <div className="min-h-screen bg-white flex flex-col items-center px-4">
+      {/* Mobile app container */}
+      <div className="w-full max-w-sm mx-auto bg-green-500 rounded-lg min-h-[600px] relative">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
@@ -89,23 +89,23 @@ export function Home() {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t">
-          <div className="w-full max-w-sm mx-auto flex justify-around py-3">
+        <div className="absolute bottom-0 left-0 right-0 bg-white/10 backdrop-blur rounded-b-lg border-t border-white/20">
+          <div className="flex justify-around py-3">
             <button
               onClick={() => navigate("/learn")}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               📖 Learn
             </button>
             <button
               onClick={() => navigate("/review")}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               🔄 Review
             </button>
             <button
               onClick={() => navigate("/progress")}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              className="px-4 py-2 text-sm text-white hover:text-white/80 transition-colors"
             >
               📊 Progress
             </button>
