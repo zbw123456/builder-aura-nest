@@ -45,9 +45,9 @@ export function Learn() {
   };
 
   return (
-    <div className="learn-bg">
-      {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
+    <div className="min-h-screen bg-white flex flex-col items-center px-4">
+      {/* Mobile app container */}
+      <div className="w-full max-w-sm mx-auto bg-purple-500 rounded-lg min-h-[600px]">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
