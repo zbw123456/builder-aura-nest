@@ -4,95 +4,119 @@ import { Menu, User } from "lucide-react";
 export function Home() {
   const navigate = useNavigate();
 
-  const handleLearnClick = () => {
-    navigate("/learn");
+  const handleMenuClick = () => {
+    // Placeholder for menu functionality
+    console.log("Menu clicked");
   };
 
-  const handleReviewClick = () => {
-    navigate("/review");
-  };
-
-  const handleProgressClick = () => {
-    navigate("/progress");
+  const handleProfileClick = () => {
+    // Placeholder for profile functionality
+    console.log("Profile clicked");
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="home-bg">
       {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
+      <div className="w-full max-w-sm mx-auto relative z-10">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
-          <button className="p-2">
-            <Menu className="w-6 h-6 text-foreground" />
+          <button
+            onClick={handleMenuClick}
+            className="glass-button rounded-lg p-2 transition-all hover:scale-105"
+          >
+            <Menu className="w-5 h-5 text-white" />
           </button>
-          <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-            <User className="w-5 h-5 text-gray-500" />
-          </div>
+          <h2 className="text-white font-medium drop-shadow-sm">Home</h2>
+          <button
+            onClick={handleProfileClick}
+            className="glass-button rounded-full p-2 transition-all hover:scale-105"
+          >
+            <User className="w-5 h-5 text-white" />
+          </button>
         </div>
 
         {/* Main Content */}
-        <div className="px-5 space-y-8 mt-16">
+        <div className="px-5 space-y-6">
           {/* Daily Vocabulary Section */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-lg font-medium text-foreground">
+          <div className="glass-card rounded-lg p-6">
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-medium text-white drop-shadow-sm">
                 📚 Daily Vocabulary
               </span>
+              <button
+                onClick={() => navigate("/learn")}
+                className="glass-button rounded-md px-3 py-1 transition-all hover:scale-105"
+              >
+                <span className="text-sm font-medium text-white drop-shadow-sm">
+                  Learn →
+                </span>
+              </button>
             </div>
-            <button
-              onClick={handleLearnClick}
-              className="bg-app-lightgray hover:bg-gray-300 transition-colors px-4 py-2 rounded-md"
-            >
-              <span className="text-sm font-medium text-foreground">
-                Learn →
-              </span>
-            </button>
+            <p className="text-white/80 text-sm mt-2">
+              Master 10 new words today
+            </p>
           </div>
 
           {/* Review Reminder Section */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-lg font-medium text-foreground">
+          <div className="glass-card rounded-lg p-6">
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-medium text-white drop-shadow-sm">
                 🔄 Review Reminder
               </span>
+              <button
+                onClick={() => navigate("/review")}
+                className="glass-button rounded-md px-3 py-1 transition-all hover:scale-105"
+              >
+                <span className="text-sm font-medium text-white drop-shadow-sm">
+                  Review →
+                </span>
+              </button>
             </div>
-            <button
-              onClick={handleReviewClick}
-              className="bg-app-lightgray hover:bg-gray-300 transition-colors px-4 py-2 rounded-md"
-            >
-              <span className="text-sm font-medium text-foreground">
-                Review →
-              </span>
-            </button>
+            <p className="text-white/80 text-sm mt-2">5 words need review</p>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="glass-card rounded-lg p-4">
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="text-white text-xl font-bold">25</div>
+                <div className="text-white/70 text-xs">Words Learned</div>
+              </div>
+              <div>
+                <div className="text-white text-xl font-bold">7</div>
+                <div className="text-white/70 text-xs">Day Streak</div>
+              </div>
+              <div>
+                <div className="text-white text-xl font-bold">85%</div>
+                <div className="text-white/70 text-xs">Accuracy</div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Navigation */}
-        <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm bg-gray-100 px-5 py-4">
-          <div className="flex items-center justify-center space-x-8">
+        <div className="fixed bottom-0 left-0 right-0 glass-card border-t backdrop-blur-lg">
+          <div className="w-full max-w-sm mx-auto flex justify-around py-3">
             <button
-              onClick={handleLearnClick}
-              className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
+              onClick={() => navigate("/learn")}
+              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
             >
-              <span className="text-sm text-foreground">📖 Learn</span>
+              <span className="text-sm text-white">📖 Learn</span>
             </button>
             <button
-              onClick={handleReviewClick}
-              className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
+              onClick={() => navigate("/review")}
+              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
             >
-              <span className="text-sm text-foreground">🔄 Review</span>
+              <span className="text-sm text-white">🔄 Review</span>
             </button>
             <button
-              onClick={handleProgressClick}
-              className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
+              onClick={() => navigate("/progress")}
+              className="glass-button rounded-lg px-4 py-2 transition-all hover:scale-105"
             >
-              <span className="text-sm text-foreground">📊 Progress</span>
+              <span className="text-sm text-white">📊 Progress</span>
             </button>
           </div>
         </div>
-
-        {/* Bottom padding to account for fixed navigation */}
-        <div className="h-20"></div>
       </div>
     </div>
   );
