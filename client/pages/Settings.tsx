@@ -23,7 +23,7 @@ const languages = [
 
 export function Settings() {
   const navigate = useNavigate();
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]); // Default to German
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
@@ -37,9 +37,7 @@ export function Settings() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-      {/* Mobile app container - Fixed height for phone screen */}
       <div className="w-full max-w-sm mx-auto bg-gray-600 rounded-lg h-[600px] flex flex-col">
-        {/* Header - Fixed */}
         <div className="flex items-center justify-between p-5 pt-8 flex-shrink-0">
           <button
             onClick={handleBack}
@@ -49,12 +47,10 @@ export function Settings() {
             <span className="text-base text-white">Back</span>
           </button>
           <h2 className="text-white font-medium">Settings</h2>
-          <div className="w-16"></div> {/* Spacer for centering */}
+          <div className="w-16"></div>
         </div>
 
-        {/* Scrollable Content Area */}
         <div className="flex-1 overflow-y-auto px-5">
-          {/* Language Selection */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Globe className="w-5 h-5 text-white" />
@@ -90,7 +86,6 @@ export function Settings() {
             </div>
           </div>
 
-          {/* Audio Settings */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Volume2 className="w-5 h-5 text-white" />
@@ -120,7 +115,6 @@ export function Settings() {
             </button>
           </div>
 
-          {/* Notification Settings */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Bell className="w-5 h-5 text-white" />
@@ -150,7 +144,6 @@ export function Settings() {
             </button>
           </div>
 
-          {/* Other Settings */}
           <div className="space-y-2 mb-4">
             <button className="w-full simple-card rounded-lg p-4 flex items-center gap-3">
               <User className="w-5 h-5 text-gray-600" />
@@ -172,7 +165,6 @@ export function Settings() {
           </div>
         </div>
 
-        {/* Current Selection Display - Fixed */}
         <div className="p-5 pt-0 flex-shrink-0">
           <div className="simple-card rounded-lg p-3">
             <div className="text-center">
