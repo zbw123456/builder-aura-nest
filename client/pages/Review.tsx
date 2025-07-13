@@ -25,9 +25,9 @@ export function Review() {
   };
 
   return (
-    <div className="review-bg">
-      {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
+    <div className="min-h-screen bg-white flex flex-col items-center px-4">
+      {/* Mobile app container */}
+      <div className="w-full max-w-sm mx-auto bg-cyan-500 rounded-lg min-h-[600px] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
@@ -92,7 +92,7 @@ export function Review() {
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-8 space-y-3 pb-20">
+          <div className="mt-8 space-y-3 pb-8">
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 transition-colors">
               🎯 Start Review Session
             </button>
