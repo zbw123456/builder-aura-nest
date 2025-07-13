@@ -92,7 +92,7 @@ export function Home() {
                 </button>
 
                 {showCategoryDropdown && (
-                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-10 max-h-40 overflow-y-auto">
+                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-20 max-h-40 overflow-y-auto">
                     {categories.map((category) => (
                       <button
                         key={category.id}
@@ -134,7 +134,7 @@ export function Home() {
                 </button>
 
                 {showLevelDropdown && (
-                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-10">
+                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-20">
                     <div className="grid grid-cols-2 gap-1 p-2">
                       {levels.map((level) => (
                         <button
@@ -155,6 +155,17 @@ export function Home() {
                 )}
               </div>
             </div>
+
+            {/* Spacer when dropdowns are open */}
+            <div
+              className={`transition-all duration-200 ${
+                showCategoryDropdown
+                  ? "h-40"
+                  : showLevelDropdown
+                    ? "h-32"
+                    : "h-0"
+              }`}
+            />
 
             {/* Daily Vocabulary Section */}
             <div className="simple-card rounded-lg p-6">
