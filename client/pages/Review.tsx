@@ -25,11 +25,11 @@ export function Review() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center px-4">
-      {/* Mobile app container */}
-      <div className="w-full max-w-sm mx-auto bg-cyan-500 rounded-lg min-h-[600px] overflow-y-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between p-5 pt-8">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+      {/* Mobile app container - Fixed height for phone screen */}
+      <div className="w-full max-w-sm mx-auto bg-cyan-500 rounded-lg h-[600px] flex flex-col">
+        {/* Header - Fixed */}
+        <div className="flex items-center justify-between p-5 pt-8 flex-shrink-0">
           <button
             onClick={handleBack}
             className="simple-button rounded-lg px-3 py-2 flex items-center gap-2"
@@ -40,14 +40,15 @@ export function Review() {
           <h2 className="text-white font-medium">Review</h2>
         </div>
 
-        {/* Filter */}
-        <div className="px-5 mt-8">
-          <div className="simple-card rounded-md p-3 mb-6 w-fit">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-y-auto px-5">
+          {/* Filter */}
+          <div className="simple-card rounded-md p-3 mb-4 w-fit">
             <span className="text-sm text-gray-800">Error Vocabulary 🔽</span>
           </div>
 
           {/* Review Stats */}
-          <div className="simple-card rounded-lg p-4 mb-6">
+          <div className="simple-card rounded-lg p-4 mb-4">
             <div className="flex justify-between items-center">
               <div className="text-center">
                 <div className="text-gray-800 text-lg font-bold">
@@ -67,7 +68,7 @@ export function Review() {
           </div>
 
           {/* Vocabulary List */}
-          <div className="space-y-3">
+          <div className="space-y-3 mb-4">
             {reviewWords.map((item, index) => (
               <div key={index} className="simple-card rounded-lg p-4">
                 <div className="flex items-center justify-between">
@@ -90,9 +91,11 @@ export function Review() {
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Action Buttons */}
-          <div className="mt-8 space-y-3 pb-8">
+        {/* Fixed Bottom Action Buttons */}
+        <div className="p-5 pt-0 flex-shrink-0">
+          <div className="space-y-3">
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 transition-colors">
               🎯 Start Review Session
             </button>
