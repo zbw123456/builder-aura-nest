@@ -20,9 +20,9 @@ export function Progress() {
   ];
 
   return (
-    <div className="progress-bg">
-      {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
+    <div className="min-h-screen bg-white flex flex-col items-center px-4">
+      {/* Mobile app container */}
+      <div className="w-full max-w-sm mx-auto bg-orange-500 rounded-lg min-h-[600px] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
@@ -106,7 +106,7 @@ export function Progress() {
           </div>
 
           {/* Settings Goal Button */}
-          <div className="pb-20">
+          <div className="pb-8">
             <button
               onClick={handleSettingsGoal}
               className="w-full bg-white/20 hover:bg-white/30 text-white rounded-lg px-6 py-4 flex items-center justify-center gap-3 transition-colors"
