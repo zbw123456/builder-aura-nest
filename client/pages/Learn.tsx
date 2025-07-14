@@ -15,9 +15,14 @@ const vocabularyWords = [
   "Nein",
 ];
 
+type Answer = "know" | "dont-know" | null;
+
 export function Learn() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState<Answer[]>(
+    new Array(vocabularyWords.length).fill(null),
+  );
   const currentWord = vocabularyWords[currentIndex];
 
   const handleBack = () => {
@@ -25,10 +30,16 @@ export function Learn() {
   };
 
   const handleKnow = () => {
+    const newAnswers = [...answers];
+    newAnswers[currentIndex] = "know";
+    setAnswers(newAnswers);
     nextCard();
   };
 
   const handleDontKnow = () => {
+    const newAnswers = [...answers];
+    newAnswers[currentIndex] = "dont-know";
+    setAnswers(newAnswers);
     nextCard();
   };
 
@@ -36,7 +47,20 @@ export function Learn() {
     if (currentIndex < vocabularyWords.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      navigate("/home");
+      // End of cards, show summary and go back to home
+      const knownCount =
+        answers.filter((answer) => answer === "know").length +
+        (answers[currentIndex] ? 1 : 0);
+      const unknownCount =
+        answers.filter((answer) => answer === "dont-know").length +
+        (answers[currentIndex] ? 1 : 0);
+
+      setTimeout(() => {
+        alert(
+          `Session Complete!\n✅ Known: ${knownCount} words\n❌ Need Review: ${unknownCount} words`,
+        );
+        navigate("/home");
+      }, 100);
     }
   };
 
@@ -44,10 +68,27 @@ export function Learn() {
     console.log(`Playing audio for: ${currentWord}`);
   };
 
+  const getProgressDotColor = (index: number) => {
+    if (index < currentIndex) {
+      // Already answered
+      return answers[index] === "know" ? "bg-green-500" : "bg-red-500";
+    } else if (index === currentIndex) {
+      // Current word
+      return "bg-white border-2 border-white";
+    } else {
+      // Not yet answered
+      return "bg-white/30";
+    }
+  };
+
+  const getProgressDotSize = (index: number) => {
+    return index === currentIndex ? "w-3 h-3" : "w-2 h-2";
+  };
+
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
       {/* Mobile app container */}
-      <div className="w-full max-w-sm mx-auto bg-purple-500 rounded-lg min-h-[600px]">
+      <div className="w-full max-w-sm mx-auto bg-purple-500 rounded-lg h-[600px]">
         {/* Header */}
         <div className="flex items-center justify-between p-5 pt-8">
           <button
@@ -101,22 +142,49 @@ export function Learn() {
             </button>
           </div>
 
-          {/* Progress Indicator */}
+          {/* Progress Indicator with Colored Dots */}
           <div className="flex justify-center mb-4">
             <div className="flex space-x-2">
               {vocabularyWords.map((_, index) => (
                 <div
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index <= currentIndex ? "bg-white" : "bg-white/30"
-                  }`}
+                  className={`rounded-full transition-all duration-300 ${getProgressDotColor(index)} ${getProgressDotSize(index)}`}
                 />
               ))}
             </div>
           </div>
 
+          {/* Progress Legend */}
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-xs text-white/70">Known</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+              <span className="text-xs text-white/70">Need Review</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+              <span className="text-xs text-white/70">Pending</span>
+            </div>
+          </div>
+
+          {/* Current Progress Summary */}
+          <div className="text-center mt-4">
+            <div className="flex justify-center gap-4 text-xs text-white/80">
+              <span>
+                ✅ Known: {answers.filter((answer) => answer === "know").length}
+              </span>
+              <span>
+                ❌ Review:{" "}
+                {answers.filter((answer) => answer === "dont-know").length}
+              </span>
+            </div>
+          </div>
+
           {/* Swipe Instruction */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-6">
             <p className="text-xs text-white/60">← Swipe to switch cards →</p>
           </div>
         </div>
