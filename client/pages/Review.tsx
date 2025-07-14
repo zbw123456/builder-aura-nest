@@ -1,12 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Mic } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const reviewWords = [
-  { word: "Hallo", pronunciation: "/halo/" },
-  { word: "Guten Tag", pronunciation: "/guːtən taːk/" },
-  { word: "Danke", pronunciation: "/daŋkə/" },
-  { word: "Bitte", pronunciation: "/bɪtə/" },
-  { word: "Entschuldigung", pronunciation: "/ɛntˈʃʊldɪɡʊŋ/" },
+  { word: "Guten Tag", pronunciation: "GOO-ten tahk", meaning: "Good day" },
+  {
+    word: "Danke schön",
+    pronunciation: "DAHN-kuh shurn",
+    meaning: "Thank you",
+  },
+  { word: "Bitte", pronunciation: "BIT-tuh", meaning: "Please/You're welcome" },
+  {
+    word: "Entschuldigung",
+    pronunciation: "ent-SHOOL-di-goong",
+    meaning: "Excuse me",
+  },
+  { word: "Hallo", pronunciation: "hah-LOH", meaning: "Hello" },
 ];
 
 export function Review() {
@@ -16,52 +24,84 @@ export function Review() {
     navigate("/home");
   };
 
-  const handlePlayAudio = (word: string) => {
-    // Placeholder for audio functionality
-    console.log(`Playing audio for: ${word}`);
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Mobile-first container */}
-      <div className="w-full max-w-sm mx-auto">
-        {/* Header */}
-        <div className="flex items-center p-5 pt-8">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+      {/* Mobile app container - Fixed height for phone screen */}
+      <div className="w-full max-w-sm mx-auto bg-cyan-500 rounded-lg h-[600px] flex flex-col">
+        {/* Header - Fixed */}
+        <div className="flex items-center justify-between p-5 pt-8 flex-shrink-0">
           <button
             onClick={handleBack}
-            className="flex items-center gap-2 text-foreground hover:text-gray-600 transition-colors"
+            className="simple-button rounded-lg px-3 py-2 flex items-center gap-2"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-base">返回</span>
+            <ArrowLeft className="w-4 h-4 text-white" />
+            <span className="text-base text-white">Back</span>
           </button>
+          <h2 className="text-white font-medium">Review</h2>
         </div>
 
-        {/* Filter Section */}
-        <div className="px-5 mt-8">
-          <div className="bg-app-lightgray rounded-md p-3 mb-6 w-fit">
-            <span className="text-sm text-foreground">Error Vocabulary 🔽</span>
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-y-auto px-5">
+          {/* Filter */}
+          <div className="simple-card rounded-md p-3 mb-4 w-fit">
+            <span className="text-sm text-gray-800">Error Vocabulary 🔽</span>
           </div>
 
-          {/* Word List */}
-          <div className="space-y-4">
-            {reviewWords.map((item, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-4 flex items-center justify-between"
-              >
-                <div className="flex-1">
-                  <span className="text-base text-foreground">
-                    {item.word} {item.pronunciation}
-                  </span>
+          {/* Review Stats */}
+          <div className="simple-card rounded-lg p-4 mb-4">
+            <div className="flex justify-between items-center">
+              <div className="text-center">
+                <div className="text-gray-800 text-lg font-bold">
+                  {reviewWords.length}
                 </div>
-                <button
-                  onClick={() => handlePlayAudio(item.word)}
-                  className="w-7 h-7 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors ml-4"
-                >
-                  <Mic className="w-3 h-3 text-foreground" />
-                </button>
+                <div className="text-gray-600 text-xs">Words to Review</div>
+              </div>
+              <div className="text-center">
+                <div className="text-gray-800 text-lg font-bold">3</div>
+                <div className="text-gray-600 text-xs">Difficult Words</div>
+              </div>
+              <div className="text-center">
+                <div className="text-gray-800 text-lg font-bold">75%</div>
+                <div className="text-gray-600 text-xs">Success Rate</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Vocabulary List */}
+          <div className="space-y-3 mb-4">
+            {reviewWords.map((item, index) => (
+              <div key={index} className="simple-card rounded-lg p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-gray-800 font-medium">{item.word}</h3>
+                    <p className="text-gray-600 text-sm">
+                      {item.pronunciation}
+                    </p>
+                    <p className="text-gray-500 text-xs mt-1">{item.meaning}</p>
+                  </div>
+                  <div className="flex space-x-2">
+                    <button className="simple-button rounded-full w-8 h-8 flex items-center justify-center">
+                      <span className="text-white text-sm">🔊</span>
+                    </button>
+                    <button className="simple-button rounded-full w-8 h-8 flex items-center justify-center">
+                      <span className="text-white text-sm">⭐</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Fixed Bottom Action Buttons */}
+        <div className="p-5 pt-0 flex-shrink-0">
+          <div className="space-y-3">
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 transition-colors">
+              🎯 Start Review Session
+            </button>
+            <button className="w-full bg-orange-600 hover:bg-orange-700 text-white rounded-lg py-3 transition-colors">
+              🔄 Practice Difficult Words
+            </button>
           </div>
         </div>
       </div>
