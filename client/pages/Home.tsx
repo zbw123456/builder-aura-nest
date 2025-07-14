@@ -48,7 +48,7 @@ export function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
       {/* Mobile app container - Fixed height for phone screen */}
-      <div className="w-full max-w-sm mx-auto bg-green-500 rounded-lg h-[600px] flex flex-col">
+      <div className="w-full max-w-sm mx-auto bg-green-500 rounded-lg h-[600px] flex flex-col relative overflow-hidden">
         {/* Header - Fixed */}
         <div className="flex items-center justify-between p-5 pt-8 flex-shrink-0">
           <button
@@ -67,14 +67,17 @@ export function Home() {
         </div>
 
         {/* Main Content - Scrollable */}
-        <div className="flex-1 overflow-y-auto px-5">
-          <div className="space-y-4">
+        <div className="flex-1 overflow-y-auto px-5 relative">
+          <div className="space-y-4 pb-4">
             {/* Category & Level Selection */}
             <div className="space-y-3">
               {/* Category Selector */}
-              <div className="relative">
+              <div className="relative z-30">
                 <button
-                  onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
+                  onClick={() => {
+                    setShowCategoryDropdown(!showCategoryDropdown);
+                    setShowLevelDropdown(false);
+                  }}
                   className="w-full simple-card rounded-lg p-4 flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -92,12 +95,12 @@ export function Home() {
                 </button>
 
                 {showCategoryDropdown && (
-                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-20 max-h-40 overflow-y-auto">
+                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-50 max-h-40 overflow-y-auto shadow-lg">
                     {categories.map((category) => (
                       <button
                         key={category.id}
                         onClick={() => handleCategorySelect(category)}
-                        className="w-full p-3 flex items-center gap-3 hover:bg-gray-100 transition-colors"
+                        className="w-full p-3 flex items-center gap-3 hover:bg-gray-100 transition-colors first:rounded-t-lg last:rounded-b-lg"
                       >
                         <span className="text-lg">{category.icon}</span>
                         <span className="text-gray-800 text-sm">
@@ -110,9 +113,12 @@ export function Home() {
               </div>
 
               {/* Level Selector */}
-              <div className="relative">
+              <div className="relative z-20">
                 <button
-                  onClick={() => setShowLevelDropdown(!showLevelDropdown)}
+                  onClick={() => {
+                    setShowLevelDropdown(!showLevelDropdown);
+                    setShowCategoryDropdown(false);
+                  }}
                   className="w-full simple-card rounded-lg p-4 flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -134,7 +140,7 @@ export function Home() {
                 </button>
 
                 {showLevelDropdown && (
-                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-20">
+                  <div className="absolute top-full left-0 right-0 mt-1 simple-card rounded-lg border border-white/20 z-50 shadow-lg">
                     <div className="grid grid-cols-2 gap-1 p-2">
                       {levels.map((level) => (
                         <button
@@ -155,17 +161,6 @@ export function Home() {
                 )}
               </div>
             </div>
-
-            {/* Spacer when dropdowns are open */}
-            <div
-              className={`transition-all duration-200 ${
-                showCategoryDropdown
-                  ? "h-40"
-                  : showLevelDropdown
-                    ? "h-32"
-                    : "h-0"
-              }`}
-            />
 
             {/* Daily Vocabulary Section */}
             <div className="simple-card rounded-lg p-6">
@@ -247,6 +242,17 @@ export function Home() {
             </button>
           </div>
         </div>
+
+        {/* Overlay to close dropdowns when clicking outside */}
+        {(showCategoryDropdown || showLevelDropdown) && (
+          <div
+            className="absolute inset-0 z-10"
+            onClick={() => {
+              setShowCategoryDropdown(false);
+              setShowLevelDropdown(false);
+            }}
+          />
+        )}
       </div>
     </div>
   );
